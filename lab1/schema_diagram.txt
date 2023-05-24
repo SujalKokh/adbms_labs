@@ -1,0 +1,138 @@
+Table users {
+  id int [pk, increment]
+  email varchar
+  name varchar
+  gender varchar
+  dob varchar
+  mobile_number varchar
+  password varchar
+  is_admin boolean
+  is_teacher boolean
+  is_parent boolean
+  is_student boolean
+  is_active boolean
+  created_at datetime
+  updated_at datetime
+}
+
+Table user_device_tokens {
+  id int [pk, increment]
+  user_id int
+  device_token string
+  created_at datetime
+  updated_at datetime
+}
+
+Table students {
+  id int [pk, increment]
+  user_id int
+  grade_id int
+  created_at datetime
+  updated_at datetime
+}
+
+Table parents {
+  id int [pk, increment]
+  user_id int
+  created_at datetime
+  updated_at datetime
+}
+
+Table student_parent_maps {
+  id int [pk, increment]
+  student_id int
+  parent_id int
+  created_at datetime
+  updated_at datetime
+}
+
+Table teachers {
+  id int [pk, increment]
+  user_id int
+  created_at datetime
+  updated_at datetime
+}
+
+Table subjects {
+  id int [pk, increment]
+  name varchar
+  created_at datetime
+  updated_at datetime
+}
+
+Table grades {
+  id int [pk, increment]
+  name varchar
+  name_char varchar
+  section varchar
+  created_at datetime
+  updated_at datetime
+}
+
+Table grade_subject_maps {
+  id int [pk, increment]
+  grade_id int
+  subject_id int
+  description string
+  created_at datetime
+  updated_at datetime
+}
+
+Table teacher_grade_subject_maps {
+  id int [pk, increment]
+  teacher_id int
+  grade_subject_maps_id int
+  created_at datetime
+  updated_at datetime
+}
+
+Table merit_points {
+  id int [pk, increment]
+  teacher_id int
+  student_id int
+  point int
+  remark varchar
+  terminal int
+  created_at datetime
+  updated_at datetime
+}
+
+Table merit_point_histories {
+  id int [pk, increment]
+  merit_point_id int
+  teacher_id int
+  student_id int
+  point int
+  remark varchar
+  terminal int
+  year int
+  year_nepali int
+  created_at int
+  updated_at int
+}
+
+Ref: "users"."id" < "students"."user_id"
+
+Ref: "users"."id" < "parents"."user_id"
+
+Ref: "users"."id" < "user_device_tokens"."user_id"
+
+Ref: "users"."id" < "teachers"."user_id"
+
+Ref: "students"."id" < "student_parent_maps"."student_id"
+
+Ref: "parents"."id" < "student_parent_maps"."parent_id"
+
+Ref: "grades"."id" < "students"."grade_id"
+
+Ref: "grades"."id" < "grade_subject_maps"."grade_id"
+
+Ref: "subjects"."id" < "grade_subject_maps"."subject_id"
+
+Ref: "teachers"."id" < "teacher_grade_subject_maps"."teacher_id"
+
+Ref: "grade_subject_maps"."id" < "teacher_grade_subject_maps"."grade_subject_maps_id"
+
+Ref: "teachers"."id" < "merit_points"."teacher_id"
+
+Ref: "students"."id" < "merit_points"."student_id"
