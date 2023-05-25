@@ -10,7 +10,7 @@ create table users (
 	update_at TIMESTAMP NOT NULL
 );
 
-create table user_device_token (
+create table user_device_tokens (
 	id SERIAL primary key,
 	device_token varchar(100),
 	created_at TIMESTAMP NOT NULL,
