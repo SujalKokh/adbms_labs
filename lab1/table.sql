@@ -110,3 +110,14 @@ create table merit_points (
 	CONSTRAINT fk_merit_points_subjects FOREIGN KEY (subject_id) REFERENCES subjects(id)
 );
 
+
+create table notifications (
+	id SERIAL primary key,
+	device_token varchar(100),
+	headers varchar(80),
+	message varchar(200),
+	deeplink varchar(200),
+	is_notification_sent boolean,
+	created_at TIMESTAMP NOT NULL,
+	updated_at TIMESTAMP NOT NULL
+);
