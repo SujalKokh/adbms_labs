@@ -14,4 +14,4 @@
 
 -- 8. Write a SQL that shows the merit points for all subjects of any student.
 
--- 9. To simulate a notification event, lets create a notifications table that contains following columns (id, user_device_token, headers, message, deeplink, is_notification_sent, created_at, deleted_at). Create a trigger that inserts data into the notifications table every time a data is added in merit_points table. Use "Merit point update" as header and "Merit point has been updated" as body, "https://deeplink.testdeeplink.com/deeplink" as deeplink, false as is_notificat ion_sent.
+-- 9. To simulate a notification event, lets create a notifications table that contains following columns (id, user_device_token, headers, message, deeplink, is_notification_sent, created_at, deleted_at). Create a trigger that inserts data into the notifications table every time a data is added in merit_points table. Use "Merit point update" as header and "Your merit point has been updated by teacher" as body, "https://deeplink.testdeeplink.com/deeplink" as deeplink, false as is_notificat ion_sent.
