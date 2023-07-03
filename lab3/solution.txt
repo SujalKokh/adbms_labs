@@ -1,0 +1,11 @@
+### Part 1: DDL's
+1. db.createCollection("users")
+2. db.users.insert({user_id: 1, name: "Sujal Kokh Shrestha", dob: "1995-12-28", age: 27})
+3. db.users.update({}, {$set: {join_date: new Date()}}, {multi: true})
+4. db.users.update({}, {$unset: {join_date: new Date()}}, {multi: true})
+5. db.users.find({ age: { $ne: 22} })
+6. db.users.find({}).sort({age:1})
+7. db.users.count()
+8. db.users.distinct("age")
+9. db.users.remove({age: 27})
+
