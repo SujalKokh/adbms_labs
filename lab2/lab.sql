@@ -1,4 +1,5 @@
--- How to Create User-Defined Type (UDT
+-- references: https://www.sqlines.com/postgresql/how-to/create_user_defined_type
+-- How to Create User-Defined Type (UDT)
 
 -- Define a type using CREATE DOMAIN
 CREATE DOMAIN addr VARCHAR(90) NOT NULL DEFAULT 'N/A';
